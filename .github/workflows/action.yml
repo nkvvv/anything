@@ -13,5 +13,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test
+
+      - name: Test example_game.py
         run: python3 example_game.py
+
+      - name: Test help.py
+        run: python3 help.py
