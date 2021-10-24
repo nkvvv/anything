@@ -6,6 +6,9 @@ on:
       - main
       - jnqa-add-this
 
+env:
+  difficulty_game: 32
+
 jobs:
   RunPython:
     name: VladaLearn
@@ -15,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test example_game.py
-        run: python3 example_game.py
+        run: python3 example_game.py ${{ env.difficulty_game }}
 
       - name: Test help.py
         run: python3 help.py

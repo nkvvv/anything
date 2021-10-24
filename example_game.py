@@ -1,5 +1,6 @@
 import random
 import time
+import sys
 
 class ColorHack:
     def __init__(self, difficulty=3):
@@ -50,12 +51,16 @@ class ColorHack:
                 index+=1
         return False
 
-def play_test():
-    game = ColorHack(32)
+def play_test(difficulty):
+    game = ColorHack(difficulty)
     while True:
         if game.try_hack():
             break
         time.sleep(0.1)
     return game.attemps
-    
-print(f"\x1b[1;36mУспех с {play_test()} попытки!\x1b[0m")
+
+print("\x1b[1;36mАргументы:\x1b[0m", str(sys.argv))
+difficulty = 32
+if len(sys.argv) >= 2 and sys.argv[1].isdigit:
+    difficulty = int(sys.argv[1])
+print(f"\x1b[1;36mУспех с {play_test(difficulty)} попытки!\x1b[0m")
